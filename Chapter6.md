@@ -1,9 +1,8 @@
-# Data Structures
-## Recursion
+# Recursion
 * Base case required to get out
 * Not  very efficient, more overhead
     * Stack Overflow (Not the site)
-#### Recursion Example in Java:
+### Recursion Example in Java:
 ```java
 public class RecursionExample4 {  
     static int n1=0,n2=1,n3=0;      
@@ -29,9 +28,9 @@ public static void main(String[] args) {
 ```
 
 
-### Recursive Binary Search
+## Recursive Binary Search
 * Binary search, but recursive 
-#### Recursive Binary Search Implemented in Java:
+### Recursive Binary Search Implemented in Java:
 ```Java
 public static int binarySearch(int intToSearch, int[] sortedArray) {
 
@@ -59,14 +58,14 @@ public static int binarySearch(int intToSearch, int[] sortedArray) {
 }
 ```
 
-### Mergesort
+## Mergesort
 * Break array in half
 * Sort lower half
 * Sort upper half
 * Merge together by comparing lowest of each half (if sorting low to high)
 * O(Nlog(N))
 * Requires a second "workspace" array to save while sorting
-#### Mergesort Implemented in Java:
+### Mergesort Implemented in Java:
 ```Java
 import java.io.*;
 import java.util.Arrays;
