@@ -3,6 +3,7 @@
 * Base case required to get out
 * Not  very efficient, more overhead
     * Stack Overflow (Not the site)
+#### Recursion Example in Java:
 ```java
 public class RecursionExample4 {  
     static int n1=0,n2=1,n3=0;      
@@ -30,7 +31,7 @@ public static void main(String[] args) {
 
 ### Recursive Binary Search
 * Binary search, but recursive 
-
+#### Recursive Binary Search Implemented in Java:
 ```Java
 public static int binarySearch(int intToSearch, int[] sortedArray) {
 
@@ -64,78 +65,84 @@ public static int binarySearch(int intToSearch, int[] sortedArray) {
 * Sort upper half
 * Merge together by comparing lowest of each half (if sorting low to high)
 * O(Nlog(N))
+* Requires a second "workspace" array to save while sorting
 #### Mergesort Implemented in Java:
 ```Java
-import java.util.*;
- 
-public class MergerSort
-{
-    public static void main(String[] args)
-    {
-        //Unsorted array
-        Integer[] a = { 2, 6, 3, 5, 1 };
-         
-        //Call merge sort
-        mergeSort(a);
-         
-        //Check the output which is sorted array
-        System.out.println(Arrays.toString(a));
-    }
- 
-    @SuppressWarnings("rawtypes")
-    public static Comparable[] mergeSort(Comparable[] list)
-    {
-        //If list is empty; no need to do anything
-        if (list.length <= 1) {
-            return list;
+import java.io.*;
+import java.util.Arrays;
+
+
+public class MergeSort {
+
+    public static void main(String[] args) throws IOException{
+        BufferedReader R = new BufferedReader(new InputStreamReader(System.in));
+        int arraySize = Integer.parseInt(R.readLine());
+        int[] inputArray = new int[arraySize];
+        for (int i = 0; i < arraySize; i++) {
+            inputArray[i] = Integer.parseInt(R.readLine());
         }
-         
-        //Split the array in half in two parts
-        Comparable[] first = new Comparable[list.length / 2];
-        Comparable[] second = new Comparable[list.length - first.length];
-        System.arraycopy(list, 0, first, 0, first.length);
-        System.arraycopy(list, first.length, second, 0, second.length);
-         
-        //Sort each half recursively
-        mergeSort(first);
-        mergeSort(second);
-         
-        //Merge both halves together, overwriting to original array
-        merge(first, second, list);
-        return list;
-    }
-     
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    private static void merge(Comparable[] first, Comparable[] second, Comparable[] result)
-    {
-        //Index Position in first array - starting with first element
-        int iFirst = 0;
-         
-        //Index Position in second array - starting with first element
-        int iSecond = 0;
-         
-        //Index Position in merged array - starting with first position
-        int iMerged = 0;
-         
-        //Compare elements at iFirst and iSecond,
-        //and move smaller element at iMerged
-        while (iFirst < first.length && iSecond < second.length)
-        {
-            if (first[iFirst].compareTo(second[iSecond]) < 0)
-            {
-                result[iMerged] = first[iFirst];
-                iFirst++;
-            }
-            else
-            {
-                result[iMerged] = second[iSecond];
-                iSecond++;
-            }
-            iMerged++;
+        mergeSort(inputArray);
+
+        for (int j = 0; j < inputArray.length; j++) {
+            System.out.println(inputArray[j]);
         }
-        //copy remaining elements from both halves - each half will have already sorted elements
-        System.arraycopy(first, iFirst, result, iMerged, first.length - iFirst);
-        System.arraycopy(second, iSecond, result, iMerged, second.length - iSecond);
+
     }
+
+    static void mergeSort(int[] A) {
+        if (A.length > 1) {
+            int q = A.length/2;
+
+//changed range of leftArray from 0-to-q to 0-to-(q-1)
+            int[] leftArray = Arrays.copyOfRange(A, 0, q-1);
+//changed range of rightArray from q-to-A.length to q-to-(A.length-1)
+            int[] rightArray = Arrays.copyOfRange(A,q,A.length-1);
+
+            mergeSort(leftArray);
+            mergeSort(rightArray);
+
+            merge(A,leftArray,rightArray);
+        }
+    }
+
+    static void merge(int[] a, int[] l, int[] r) {
+        int totElem = l.length + r.length;
+        //int[] a = new int[totElem];
+        int i,li,ri;
+        i = li = ri = 0;
+        while ( i < totElem) {
+            if ((li < l.length) && (ri<r.length)) {
+                if (l[li] < r[ri]) {
+                    a[i] = l[li];
+                    i++;
+                    li++;
+                }
+                else {
+                    a[i] = r[ri];
+                    i++;
+                    ri++;
+                }
+            }
+            else {
+                if (li >= l.length) {
+                    while (ri < r.length) {
+                        a[i] = r[ri];
+                        i++;
+                        ri++;
+                    }
+                }
+                if (ri >= r.length) {
+                    while (li < l.length) {
+                        a[i] = l[li];
+                        li++;
+                        i++;
+                    }
+                }
+            }
+        }
+        //return a;
+
+    }
+
 }
 ```
