@@ -12,5 +12,6 @@
 * Merge together by comparing lowest of each half (if sorting low to high)
 * O(Nlog(N))
 
-```String s = "This is Java syntax test";
+```Java
+String s = "This is Java syntax test";
 ```
