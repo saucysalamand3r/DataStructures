@@ -7,3 +7,11 @@
 ### More Tree terms:
 
 ![alt text](./images/image2.jpg)
+
+### Unbalanced Tree:
+
+![alt text](./images/image4.jpg)
+
+### Tree Logic:
+
+![alt text](./images/image3.jpg)
