@@ -1,7 +1,9 @@
 # Binary Trees
 
-Edges and Nodes:
+### Edges and Nodes:
+
 ![alt text](./images/image1.jpg)
 
-More Tree terms:
+### More Tree terms:
+
 ![alt text](./images/image2.jpg)
