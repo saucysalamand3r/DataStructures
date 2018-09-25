@@ -15,3 +15,8 @@
 ### Tree Logic:
 
 ![alt text](./images/image3.jpg)
+
+### Traversing the Tree:
+
+![alt text](./images/image5.jpg)
+![alt text](./images/image6.jpg)
