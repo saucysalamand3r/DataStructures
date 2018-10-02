@@ -19,4 +19,4 @@
 
 ## Red-Black Tree Efficency
 
-$$O(log\_{2}(n))$$
+$$O(log_2(n))$$
