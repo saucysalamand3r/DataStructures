@@ -1,6 +1,7 @@
-#Red-Black Trees
+# Red-Black Trees
 
-##Red-Black Rules
+## Red-Black Rules
+
 **1.** Every node is either red or black.
 
 **2.** The root is always black.
@@ -9,7 +10,7 @@
 
 **4.** Every path from the root to a leaf, or to a null child, must contain the same number of black nodes.
 
-##Red-Black Tree Tools
+## Red-Black Tree Tools
 
 - **ROL**
   - _ROL Carries out a left rotation. To rotate a group of nodes, the topmost node of the group to be rotated first. For a left rotation, the top node must have a right child._
